@@ -6,7 +6,7 @@ import icon from 'astro-icon';
 
 export default defineConfig({
   site: 'https://rimba-maker.github.io',
-  base: '/ironwood-coffee-landing',
+  base: process.env.GITHUB_ACTIONS ? '/ironwood-coffee-landing' : '/',
   integrations: [
     react(),
     icon({
