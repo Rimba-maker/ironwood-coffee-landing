@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 
 export default defineConfig({
+  site: 'https://rimba-maker.github.io',
+  base: '/ironwood-coffee-landing',
   integrations: [
     react(),
     icon({
