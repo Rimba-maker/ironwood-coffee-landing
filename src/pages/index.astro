@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../sections/Navbar.astro';
+import About from '../sections/About.astro';
+import VisitUs from '../sections/VisitUs.astro';
+import Footer from '../sections/Footer.astro';
+
+import Hero from '../components/Hero';
+import MenuHighlights from '../components/MenuHighlights';
+import TheSpace from '../components/TheSpace';
+import SpecialtyCoffee from '../components/SpecialtyCoffee';
+import WorkFromHere from '../components/WorkFromHere';
+import Events from '../components/Events';
+import Testimonial from '../components/Testimonial';
+---
+
+<Layout>
+  <Navbar />
+  <Hero client:load />
+  <About />
+  <MenuHighlights client:visible />
+  <TheSpace client:visible />
+  <SpecialtyCoffee client:visible />
+  <WorkFromHere client:visible />
+  <Events client:visible />
+  <Testimonial client:visible />
+  <VisitUs />
+  <Footer />
+</Layout>

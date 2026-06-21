@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Ironwood Coffee — Cafe Industrial Specialty Coffee Jakarta',
+  description = 'Cafe industrial dengan specialty coffee in-house roastery. Kopi jujur, ruang yang berkarakter, WiFi kencang. Buat kerja, nongkrong, atau keduanya.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="cafe industrial, specialty coffee, cafe aesthetic, cafe untuk kerja, coffee shop jakarta, cafe wifi kencang" />
+
+    <!-- OG -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CafeOrCoffeeShop",
+        "name": "Ironwood Coffee",
+        "description": "Cafe industrial dengan specialty coffee in-house roastery.",
+        "openingHours": ["Mo-Fr 08:00-23:00", "Sa-Su 07:00-24:00"],
+        "servesCuisine": "Coffee, Specialty Coffee",
+        "priceRange": "Rp 28.000 - Rp 85.000"
+      }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

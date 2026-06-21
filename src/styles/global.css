@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  /* Ironwood Color Tokens */
+  --color-bg:            #0D0B08;
+  --color-surface:       #1A1713;
+  --color-surface-raised:#2E2A26;
+  --color-iron:          #2E2A26;
+  --color-wood:          #5C3D1E;
+  --color-hairline:      #3A342E;
+
+  --color-text:          #F5F0E8;
+  --color-text-muted:    #9B9189;
+  --color-text-dim:      #6B6560;
+
+  --color-amber:         #C9863A;
+  --color-amber-deep:    #8B5E1A;
+
+  /* Typography Scale */
+  --font-display: "Bebas Neue", "Arial Narrow", Arial, sans-serif;
+  --font-body:    "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing overrides */
+  --spacing-section: 96px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-amber);
+    color: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-iron);
+    border-radius: 3px;
+  }
+}

@@ -1,0 +1,61 @@
+---
+---
+
+<section id="about" class="py-24 lg:py-36" style="background: var(--color-bg);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Text -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] mb-4" style="color: var(--color-amber);">
+          Our Story
+        </p>
+        <h2
+          class="font-display uppercase mb-8"
+          style="font-size: clamp(40px, 6vw, 72px); line-height: 0.92; color: var(--color-text);"
+        >
+          Bukan Cafe<br />Biasa-Biasa.
+        </h2>
+        <div class="space-y-5" style="color: var(--color-text-muted); line-height: 1.8;">
+          <p>
+            Ironwood lahir dari frustrasi sederhana — terlalu banyak cafe yang lebih sibuk jadi set foto daripada nyajiin kopi yang beneran enak.
+          </p>
+          <p>
+            Kami balik ke dasar: material asli, kopi jujur, dan ruang yang bikin betah lama. Beton kami beneran beton. Kopi kami beneran specialty. Dan kursi kami cukup nyaman buat duduk 4 jam nonstop.
+          </p>
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-3 gap-8 mt-12 pt-8" style="border-top: 1px solid var(--color-hairline);">
+          {[
+            { num: '2019', label: 'Berdiri' },
+            { num: '200+', label: 'Kursi' },
+            { num: '600m²', label: 'Dua Lantai' },
+          ].map(({ num, label }) => (
+            <div>
+              <p class="font-display text-3xl lg:text-4xl" style="color: var(--color-amber);">{num}</p>
+              <p class="text-xs uppercase tracking-widest mt-1" style="color: var(--color-text-dim);">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80"
+          alt="Industrial coffee bar interior"
+          class="w-full object-cover"
+          style="aspect-ratio: 4/5; filter: brightness(0.85) contrast(1.05);"
+          loading="lazy"
+        />
+        <!-- Amber accent line -->
+        <div
+          class="absolute -left-3 top-8 bottom-8"
+          style="width: 3px; background: var(--color-amber);"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>

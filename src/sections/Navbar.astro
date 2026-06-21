@@ -1,0 +1,133 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: transparent;"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <span
+          class="font-display text-2xl tracking-widest uppercase"
+          style="color: var(--color-amber); letter-spacing: 0.15em;"
+        >
+          Ironwood
+        </span>
+        <span
+          class="font-display text-2xl tracking-widest uppercase"
+          style="color: var(--color-text); letter-spacing: 0.15em;"
+        >
+          Coffee
+        </span>
+      </a>
+
+      <!-- Nav Links — Desktop -->
+      <div class="hidden lg:flex items-center gap-8">
+        {['Menu', 'Space', 'Events', 'Workshop', 'Lokasi'].map((item) => (
+          <a
+            href={`#${item.toLowerCase()}`}
+            class="text-sm font-medium uppercase tracking-widest transition-colors duration-200"
+            style="color: var(--color-text-muted); letter-spacing: 0.1em;"
+            onmouseover="this.style.color='var(--color-text)'"
+            onmouseout="this.style.color='var(--color-text-muted)'"
+          >
+            {item}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-4">
+        <a
+          href="#lokasi"
+          class="hidden lg:inline-flex items-center px-6 py-2.5 text-sm font-semibold uppercase tracking-widest rounded-full transition-all duration-200"
+          style="background: var(--color-amber); color: var(--color-bg); letter-spacing: 0.1em;"
+          onmouseover="this.style.background='var(--color-amber-deep)'"
+          onmouseout="this.style.background='var(--color-amber)'"
+        >
+          Find Us
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="nav-toggle"
+          class="lg:hidden p-2 rounded-md"
+          style="color: var(--color-text);"
+          aria-label="Toggle menu"
+        >
+          <Icon id="icon-open" name="solar:hamburger-menu-bold" class="w-6 h-6" />
+          <Icon id="icon-close" name="solar:close-circle-bold" class="w-6 h-6 hidden" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden px-6 pb-6 pt-2"
+    style="background: var(--color-bg); border-top: 1px solid var(--color-hairline);"
+  >
+    <div class="flex flex-col gap-4">
+      {['Menu', 'Space', 'Events', 'Workshop', 'Lokasi'].map((item) => (
+        <a
+          href={`#${item.toLowerCase()}`}
+          class="text-base font-medium uppercase tracking-widest py-2"
+          style="color: var(--color-text-muted); letter-spacing: 0.1em;"
+        >
+          {item}
+        </a>
+      ))}
+      <a
+        href="#lokasi"
+        class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold uppercase tracking-widest rounded-full mt-2"
+        style="background: var(--color-amber); color: var(--color-bg);"
+      >
+        Find Us
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar')!;
+  const toggle = document.getElementById('nav-toggle')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const iconOpen = document.getElementById('icon-open')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  // Scroll background
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.style.background = 'rgba(13, 11, 8, 0.95)';
+      navbar.style.backdropFilter = 'blur(12px)';
+      navbar.style.borderBottom = '1px solid #3A342E';
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.borderBottom = 'none';
+    }
+  });
+
+  // Mobile toggle
+  toggle.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+  });
+
+  // Close mobile on link click
+  mobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+</script>
